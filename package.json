@@ -1,0 +1,31 @@
+{
+  "name": "route-spreadsheet-api",
+  "version": "1.0.0",
+  "description": "Este projeto é um **sistema de gerenciamento de planilhas de rota de viagens** desenvolvido para uma empresa de distribuição de alimentos.   O objetivo principal é **organizar, automatizar e centralizar o controle das rotas**, facilitando o acompanhamento de viagens, motoristas e entregas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iranijunior95/route-spreadsheet-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/iranijunior95/route-spreadsheet-api/issues"
+  },
+  "homepage": "https://github.com/iranijunior95/route-spreadsheet-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

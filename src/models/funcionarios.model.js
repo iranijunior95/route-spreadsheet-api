@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const funcionariosSchema = new mongoose.Schema({
-    nome: { type: 'String' },
+    nome: { type: String },
     funcao: {
-        type: 'String',
+        type: String,
         enum: ["motorista", "ajudante"]
     }
 });

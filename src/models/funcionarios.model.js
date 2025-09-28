@@ -4,7 +4,7 @@ const funcionariosSchema = new mongoose.Schema({
     nome: { type: String },
     funcao: {
         type: String,
-        enum: ["motorista", "ajudante"]
+        enum: ["motorista", "ajudante", "motorista & ajudante"]
     }
 });
 

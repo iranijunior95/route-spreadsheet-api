@@ -64,7 +64,7 @@ async function addNewEmployee(req, res) {
     try {
         const funcionario = await Funcionario.create({ 
             nome: nome.toLocaleLowerCase(), 
-            funcao: funcao !== 'motorista' && funcao !== 'ajudante' ? 'ajudante' : funcao 
+            funcao
         });
 
         return res.status(201).json({
@@ -99,7 +99,7 @@ async function changeEmployee(req, res) {
             { _id: id },
             {
                 nome: nome.toLocaleLowerCase(), 
-                funcao: funcao !== 'motorista' && funcao !== 'ajudante' ? 'ajudante' : funcao 
+                funcao
             },
             {
                 new: true,

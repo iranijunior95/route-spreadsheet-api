@@ -58,6 +58,60 @@ async function searchEmployeeByID(req, res) {
     }
 }
 
+async function filterEmployeeList(req, res) {
+    const { nome, funcao } = req.body;
+    
+    let funcionariosFiltrados = [];
+
+    try {
+        if (!nome && !funcao) {
+            funcionariosFiltrados = await Funcionario.find();
+        }
+
+        if (nome && !funcao) {
+            funcionariosFiltrados = await Funcionario.find({ nome });
+        }
+        
+        if (!nome && funcao) {
+            if (funcao === 'todos') {
+                funcionariosFiltrados = await Funcionario.find();
+            } else {
+                funcionariosFiltrados = await Funcionario.find({ funcao });
+            } 
+        }
+
+        if (nome && funcao) {
+            if (funcao === 'todos') {
+                funcionariosFiltrados = await Funcionario.find({ nome });
+            } else {
+                funcionariosFiltrados = await Funcionario.find({ nome, funcao });
+            }
+        }
+
+        if (funcionariosFiltrados.length === 0) {
+            return res.status(200).json({
+                status: false,
+                message: "Nenhum funcionário encontrado",
+                funcionarios: []
+            });
+        }
+
+        return res.status(200).json({
+            status: true,
+            message: "Funcionários localizados com sucesso",
+            funcionarios: funcionariosFiltrados
+        });
+
+    } catch (error) {
+        console.log(`Erro ao filtrar lista de funcionários: ${error}`);
+
+        return res.status(500).json({
+            status: false,
+            message: "Erro interno ao filtrar lista de funcionários"
+        });
+    }
+}
+
 async function addNewEmployee(req, res) {
     const { nome, funcao } = req.body;
 
@@ -168,6 +222,7 @@ async function deleteEmployee(req, res) {
 export default {
     searchForAllEmployees,
     searchEmployeeByID,
+    filterEmployeeList,
     addNewEmployee,
     changeEmployee,
     deleteEmployee

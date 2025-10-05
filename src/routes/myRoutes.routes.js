@@ -10,7 +10,7 @@ const router = Router();
 
 router.use('/api', autenticacaoRouter);
 
-router.use(autenticacaoMiddleware.authenticateTokenRequest);
+//router.use(autenticacaoMiddleware.authenticateTokenRequest);
 
 router.use('/api', funcionariosRouter);
 router.use('/api', veiculosRouter);

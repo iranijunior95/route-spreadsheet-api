@@ -12,6 +12,10 @@ funcionariosRouter.get('/funcionarios/:id',
     funcionariosController.searchEmployeeByID
 );
 
+funcionariosRouter.post('/funcionarios/filter',
+    funcionariosController.filterEmployeeList
+);
+
 funcionariosRouter.post('/funcionarios', 
     funcionariosMiddleware.validateEmployeeData, 
     funcionariosController.addNewEmployee
